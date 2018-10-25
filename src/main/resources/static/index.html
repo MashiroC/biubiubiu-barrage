@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <title>弹幕</title>
+    <link rel="stylesheet" href="wall.css">
+</head>
+<body>
+
+<div id="container" class="container"></div>
+
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="barrageWall.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var option = {
+            container: "#container",//弹幕墙的id
+            barrageLen: 30//弹幕的行数
+        };
+        barrageWall.init(option);//初始化弹幕墙
+    })
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+</div>
+</body>
+</html>

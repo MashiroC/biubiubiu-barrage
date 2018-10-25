@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/jdbc">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/jquery-3.3.1.min.js"> </script>
+</head>
+<body>
+<div style="margin: 10px;">
+    <input id="screenBulletText" maxlength="15" type="text" placeholder="请输入弹幕内容" style="width: 200px;height: 30px;"/></div>
+<div  style="margin: 10px;"><select id="selectColor" style="background:#FDFEFE; width:100px;height: 30px;">
+    <option value="FDFEFE">请选择颜色</option>
+    <option value="5DADE2" style="background: #5DADE2">不知是啥蓝</option>
+    <option value="1ABC9C" style="background: #1ABC9C">青青草原青</option>
+    <option value="2C3E50" style="background: #2C3E50">好像有点黑</option>
+    <option value="28B463" style="background: #28B463">生活下去绿</option>
+    <option value="6C3483" style="background-color: #6C3483;">真实基佬紫</option>
+</select>
+    <button class="send" style="height: 30px;width: 50px;">发射</button>
+</div>
+<script type="text/javascript">
+    $(".send").on("click", function () {
+        console.log("???");
+        param = $("#screenBulletText").val();
+        barrageColor = $("#selectColor").val();
+        // while(true){
+//        $.ajax({url: "/barrage/sendBarrage?text=" + param + "&color=" + barrageColor, async: false});
+         $.ajax({url: "http://wx.yyeke.com/bigscreen/sendBarrage?text=" + param + "&color=" + barrageColor, async: false});
+        // }
+    });
+
+    window.onload = function () {
+        var oselectColor = document.getElementById("selectColor");
+        var option = oselectColor.options[oselectColor.selectedIndex];
+
+        oselectColor.onchange = setColor;
+
+        function setColor() {
+            var optionValue = oselectColor.options[oselectColor.selectedIndex].value;
+            oselectColor.style.background = "#" + optionValue;
+            console.log()
+        }
+    }
+</script>
+</body>
+</html>
